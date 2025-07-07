@@ -1,0 +1,38 @@
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+.profile-container h1{
+    color: rgb(64, 4, 96);
+}
+
+.profile-card {
+  background: #e0e5ec; border-radius: 20px;
+  box-shadow: 10px 10px 20px #a3b1c6,-10px -10px 20px #ffffff;
+  padding: 2em;
+  border-radius: 10px;
+  width: 300px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.avatar {
+  width: 100px;
+  border-radius: 50%;
+  margin-bottom: 1em;
+}
+
+button {
+  margin-top: 1em;
+  padding: 0.6em 1.2em;
+  border: none;
+  background: #1460d2;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 1rem;
+  font-weight: 600;
+}

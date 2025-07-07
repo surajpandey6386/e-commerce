@@ -1,0 +1,78 @@
+.logincontainer{
+  background: #e0e5ec; border-radius: 20px;
+  box-shadow: 10px 10px 20px #a3b1c6,-10px -10px 20px #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: 350px;
+  color: black;
+}
+.logincontainer-inset{
+  background: #e0e5ec; border-radius: 20px;
+  box-shadow: 10px 10px 20px #a3b1c6, inset -10px -10px 20px #ffffff;
+}
+.logincontainer-button{
+  width: 40%;
+  margin-left: 60px;
+  height:40px;
+  box-shadow: 10px 10px 20px #a3b1c6, inset -10px -10px 20px #ffffff;
+}
+.logincontainer-input, .hii{
+  width: 250px;
+  height: 40px;
+  box-shadow: 10px 10px 20px #a3b1c6, inset -10px -10px 20px #ffffff;
+}
+.logincontainer-select{
+  /* width: 250px; */
+  height: 40px;
+  box-shadow: 10px 10px 20px #a3b1c6, inset -10px -10px 20px #ffffff;
+  border-top:2px solid black ;
+border-left:2px solid black ;
+}
+.fpass{
+  text-decoration: none;
+  margin-right: 100px;
+}
+.reg{
+  text-decoration: none;
+}
+.maincontainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 92.5vh;
+  background-color: #055068;
+  animation: gradientShift 10s ease infinite;
+  color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  
+}
+
+form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+input, select{
+  border-radius: 20px;
+}
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position:0% 50%;
+}
+}
+
+
