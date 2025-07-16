@@ -3,12 +3,13 @@
   padding: 0;
 }
 .navbar {
-  background-color: #1C1C1C;
+  background-color:#0f1111;
   color:  #F5F5F5;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
+  height: 80px;
 }
 .logo {
   display: flex;
@@ -17,6 +18,7 @@
   justify-content: center;
   height: 100px;
   width: 100px;
+  /* margin-top: 20px; */
 }
 .logo img{
   height: 50%;
@@ -31,18 +33,39 @@
 
   
 }
+.searchbar{
+  height: 27px;
+  width: 500px;
+  padding: 18px;
+  margin-left: 50px;
+  border-radius: 1rem;
+  box-shadow: 1rem;
+  background-color: white;
+  color: black;
+  display: flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.searchbar input{
+  height: 30px;
+  width: 500px;
+  border: none;
+}
+
 
 .navbar nav ul {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 30px;
+  font-weight: 500;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.navbar nav ul li a {
+/* .navbar nav ul li link {
   color: white;
   text-decoration: none;
-  font-weight: 500;
-}
+  font-weight: 700;
+} */
 
 .navbar nav ul li a:hover {
   text-decoration: underline;
@@ -52,7 +75,7 @@
 .hero {
  
   background: linear-gradient(-45deg, #3F2B63, #6B4CAF, #FF6F61, #FFB86C);
-  height: 100px;
+  height: 150px;
   background-size: 400% 400%;
   animation: gradientShift 10s ease infinite;
   color: white;
@@ -60,7 +83,6 @@
   border-radius: 1rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
-  
 }
 
 /* Animation Keyframes */
@@ -89,7 +111,7 @@
 .hero-section2{
   background-image:url("https://images-eu.ssl-images-amazon.com/images/G/31/img22/CEPC/pd/69/PC_Hero_Asin_3000x1200---Prime-Blue._CB789864568_.jpg");
   background-size: cover;
-  height: 340px;
+  height: 300px;
   display: flex;
   justify-content: center;
   align-items: end;
@@ -128,7 +150,6 @@
   background-image: url("https://m.media-amazon.com/images/I/41mWz2aRrTL._SY695_.jpg");
   background-size: cover;
   height: 300px;
-  transition: all 0.45s ease;
 }
 .box-content{
   margin-right: 1rem;
