@@ -18,6 +18,7 @@ const Navbar = () => {
         <li><Link to ='/cart'>cart🛒</Link> </li>
         <li><Link to="/profile">Profile👤</Link></li>
         <li><Link to='/login'>Sign In</Link></li>
+        <li><Link to='/additem'>add items</Link></li>
       </ul>
     </nav>
   </header>

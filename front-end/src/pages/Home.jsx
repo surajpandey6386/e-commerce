@@ -1,6 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./home.css";
 const Home = () => {
+  const navigate = useNavigate();
+  const handleClick = ()=>{
+    navigate('/product');
+  }
   return (
     <>
       <section className="hero">
@@ -17,7 +22,7 @@ const Home = () => {
       </div>
 
       <div className="shop-section">
-        <div className="box1 box">
+        <div onClick={handleClick} className="box1 box">
           <div className="box-content">
             <h2>shoes for Men</h2>
             <div className="box-img"></div>

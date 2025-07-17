@@ -1,7 +1,14 @@
 import React from "react";
 import "./Product1.css";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { useState } from "react";
+import axios from 'axios'
 const Product1 = () => {
+  const [category, setCategory] = useState('Shoes for men');
+  useEffect(()=>{
+    axios.get('http://localhost:3000/getproduct', category);
+  })
   return (
     <>
       <h1>Shoes for Men</h1>

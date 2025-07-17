@@ -9,6 +9,7 @@ import Adminlogin from "./pages/adminlogin";
 import Register from "./pages/register";
 import Profile from "./pages/Profile";
 import Product1 from "./pages/Product1";
+import Additem from "./pages/additem";
 function App() {
   return (
     <>
@@ -21,7 +22,7 @@ function App() {
           <Route path="/cart" element = {<Cart/>}/>
           <Route path="/profile" element = {<Profile/>}/>
           <Route path="/product" element = {<Product1/>}/>
-        </Routes>
+          <Route path="/additem" element = {<Additem/>}/></Routes>
       </BrowserRouter>
       
     </>
