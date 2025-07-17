@@ -20,7 +20,7 @@ app.post('/register', Register)
 app.post('/login', Login)
 app.get('/userdetails/:id',getuserdetails)
 app.post('/addItem',addItem)
-app.get('/getproduct/:category',getItem)
+app.get('/getproduct',getItem)
 app.post("/add-to-cart", addToCart);
 app.get("/get-cart/:userId", getCart);
 

@@ -36,29 +36,31 @@ export const addItem = async (req, res) => {
 };
 
 // Get Items by Category Controller
+// Get items by category or search keyword
 export const getItem = async (req, res) => {
-  const { category } = req.params;
+  const { category, search } = req.query;
 
   try {
-    if (!category) {
-      return res.status(400).json({
-        message: "Category is required",
-        success: false,
-      });
+    let query = {};
+
+    if (category) {
+      query.select = category;
     }
 
-    const items = await Item.find({ category });
+    if (search) {
+      query.itemname = { $regex: search, $options: "i" }; // case-insensitive search
+    }
+
+    const items = await Item.find(query);
 
     return res.status(200).json({
-      message: "Items fetched successfully",
+      message: "Items fetched",
       success: true,
       products: items,
     });
   } catch (error) {
     console.error("Error fetching items:", error);
-    return res.status(500).json({
-      message: "Internal Server Error",
-      success: false,
-    });
+    return res.status(500).json({ message: "Internal Server Error", success: false });
   }
 };
+
