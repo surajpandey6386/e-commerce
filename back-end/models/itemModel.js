@@ -21,7 +21,7 @@ const itemSchema = new Schema({
     required: true,
   },
   category: {
-    type: String, // Replaced 'select' with 'category'
+    type: String,
     required: true,
   },
 });

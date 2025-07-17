@@ -9,7 +9,7 @@ const cartItemSchema = new mongoose.Schema({
 });
 
 const cartSchema = new mongoose.Schema({
-  userId: { type: String, required: true }, // e.g., Firebase UID or custom ID
+  userId: { type: String, required: true },
   items: [cartItemSchema]
 }, { timestamps: true });
 

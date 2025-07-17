@@ -35,22 +35,21 @@ export const addItem = async (req, res) => {
   }
 };
 
-// Get Items by Category Controller
-// Get items by category or search keyword
 export const getItem = async (req, res) => {
   const { category, search } = req.query;
-
+    console.log(category, search);
   try {
     let query = {};
 
     if (category) {
-      query.select = category;
+      query.category = category;
     }
 
     if (search) {
-      query.itemname = { $regex: search, $options: "i" }; // case-insensitive search
+      query.itemname = { $regex: search, $options: "i" }; 
     }
-
+    console.log(query);
+    
     const items = await Item.find(query);
 
     return res.status(200).json({
