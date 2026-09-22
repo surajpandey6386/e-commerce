@@ -3,9 +3,9 @@ import Item from "../models/itemModel.js";
 
 // Add item to cart
 export const addToCart = async (req, res) => {
-    console.log(req.body);
+  console.log(req.body);
   const { userId, itemId, quantity = 1 } = req.body;
-console.log("Hey here!")
+  console.log("Hey here!");
   try {
     const item = await Item.findById(itemId);
     if (!item) return res.status(404).json({ message: "Item not found" });
@@ -15,16 +15,18 @@ console.log("Hey here!")
     if (!cart) {
       cart = await Cart.create({
         userId,
-        items: [{
-          itemId,
-          name: item.itemname,
-          price: item.price,
-          image: item.imgLink,
-          quantity
-        }]
+        items: [
+          {
+            itemId,
+            name: item.itemname,
+            price: item.price,
+            image: item.imgLink,
+            quantity,
+          },
+        ],
       });
     } else {
-      const index = cart.items.findIndex(i => i.itemId.toString() === itemId);
+      const index = cart.items.findIndex((i) => i.itemId.toString() === itemId);
       if (index > -1) {
         cart.items[index].quantity += quantity;
       } else {
@@ -33,13 +35,15 @@ console.log("Hey here!")
           name: item.itemname,
           price: item.price,
           image: item.imgLink,
-          quantity
+          quantity,
         });
       }
       await cart.save();
     }
 
-    res.status(200).json({ success: true, message: "Item added to cart", cart });
+    res
+      .status(200)
+      .json({ success: true, message: "Item added to cart", cart });
   } catch (err) {
     console.error(err);
     res.status(500).json({ success: false, message: "Internal server error" });
@@ -57,5 +61,39 @@ export const getCart = async (req, res) => {
     res.status(200).json({ success: true, cart });
   } catch (err) {
     res.status(500).json({ success: false, message: "Failed to fetch cart" });
+  }
+};
+
+//new
+// Remove item from cart
+export const removeFromCart = async (req, res) => {
+  const { userId, itemId } = req.params;
+
+  try {
+    const cart = await Cart.findOne({ userId });
+
+    if (!cart) {
+      return res.status(404).json({
+        success: false,
+        message: "Cart not found",
+      });
+    }
+
+    // Filter out the item
+    cart.items = cart.items.filter((item) => item.itemId.toString() !== itemId);
+
+    await cart.save();
+
+    res.status(200).json({
+      success: true,
+      message: "Item removed from cart",
+      cart,
+    });
+  } catch (error) {
+    console.error("Remove cart error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Failed to remove item",
+    });
   }
 };

@@ -47,3 +47,45 @@ const Profile = () => {
 };
 
 export default Profile;
+
+
+
+// import React, { useEffect, useState } from "react";
+// import axios from "axios";
+
+// const Profile = () => {
+//   const [user, setUser] = useState(null);
+
+//   useEffect(() => {
+//     const fetchUser = async () => {
+//       try {
+//         const storedUser = JSON.parse(localStorage.getItem("user"));
+//         if (!storedUser) return;
+
+//         const res = await axios.get(
+//           `http://localhost:5000/api/users/${storedUser.id}`
+//         );
+//         setUser(res.data.user);
+//       } catch (err) {
+//         console.error("Error fetching profile", err);
+//       }
+//     };
+
+//     fetchUser();
+//   }, []);
+
+//   if (!user) return <h2>Loading...</h2>;
+
+//   return (
+//     <div>
+//       <h2>Profile</h2>
+//       <p><strong>Name:</strong> {user.name}</p>
+//       <p><strong>Email:</strong> {user.email}</p>
+//       <p><strong>Phone:</strong> {user.phone}</p>
+//       <p><strong>Address:</strong> {user.address}</p>
+//       <p><strong>Role:</strong> {user.role}</p>
+//     </div>
+//   );
+// };
+
+// export default Profile;

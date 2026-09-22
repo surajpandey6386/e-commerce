@@ -46,6 +46,12 @@
   justify-content:space-between;
   align-items:center;
 }
+.searchbutt{
+  margin-top: 1px;
+  margin-right: -18px;
+  border-top-right-radius: 30%;
+  border-bottom-right-radius: 30%;
+}
 .searchbar input{
   height: 30px;
   width: 500px;

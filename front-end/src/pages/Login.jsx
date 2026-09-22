@@ -1,34 +1,38 @@
-import React, { useState , useEffect  } from "react";
+import React, { useState, useEffect } from "react";
 import "./login.css";
-import { useNavigate, Link, } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:3000/login', {
+      const res = await axios.post("http://localhost:3000/login", {
         email,
         password,
       });
 
-      if (res.data.status = 200) {
-        alert('Login successful');
-        localStorage.setItem('userId',res.data.userId );
-        navigate('/'); // Redirect on success
+      if (res.status === 200) {
+        alert("Login successful");
+
+        localStorage.setItem("userId", res.data.userId);
+        localStorage.setItem("role", res.data.role);
+
+        navigate("/");
       } else {
-        alert('Login failed: ' + (res.data.message || 'Invalid credentials'));
+        alert("Login failed");
       }
     } catch (error) {
       console.error("Login error:", error);
-      alert('Server Error. Please try again.');
+      alert("Invalid credentials");
     }
   };
+
   return (
     <div className="main-container">
       <div className="floating-shapes">
@@ -71,7 +75,13 @@ const Login = () => {
                 <span
                   className="password-toggle"
                   onClick={() => setShowPassword((prev) => !prev)}
-                  style={{ position: "absolute", right: 10, top: "50%", transform: "translateY(-50%)", cursor: "pointer" }}
+                  style={{
+                    position: "absolute",
+                    right: 10,
+                    top: "50%",
+                    transform: "translateY(-50%)",
+                    cursor: "pointer",
+                  }}
                 >
                   👁
                 </span>
@@ -83,10 +93,14 @@ const Login = () => {
                 <input type="checkbox" id="remember" />
                 Remember me
               </label>
-              <a href="#" className="forgot-password">Forgot password?</a>
+              <a href="#" className="forgot-password">
+                Forgot password?
+              </a>
             </div>
 
-            <button type="submit" className="login-btn">Login</button>
+            <button type="submit" className="login-btn">
+              Login
+            </button>
 
             <p id="one">
               Don't have an account? <Link to="/register">Register</Link>

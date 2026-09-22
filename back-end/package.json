@@ -13,7 +13,10 @@
   "description": "",
   "dependencies": {
     "cors": "^2.8.5",
+    "crypto": "^1.0.1",
     "express": "^5.1.0",
-    "mongoose": "^8.16.2"
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.16.2",
+    "razorpay": "^2.9.6"
   }
 }

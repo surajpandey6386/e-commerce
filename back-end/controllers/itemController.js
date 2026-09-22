@@ -18,7 +18,7 @@ export const addItem = async (req, res) => {
       price,
       rating,
       itemname,
-      category
+      category,
     });
 
     return res.status(200).json({
@@ -37,7 +37,7 @@ export const addItem = async (req, res) => {
 
 export const getItem = async (req, res) => {
   const { category, search } = req.query;
-    console.log(category, search);
+  console.log(category, search);
   try {
     let query = {};
 
@@ -46,10 +46,10 @@ export const getItem = async (req, res) => {
     }
 
     if (search) {
-      query.itemname = { $regex: search, $options: "i" }; 
+      query.itemname = { $regex: search, $options: "i" };
     }
     console.log(query);
-    
+
     const items = await Item.find(query);
 
     return res.status(200).json({
@@ -59,7 +59,8 @@ export const getItem = async (req, res) => {
     });
   } catch (error) {
     console.error("Error fetching items:", error);
-    return res.status(500).json({ message: "Internal Server Error", success: false });
+    return res
+      .status(500)
+      .json({ message: "Internal Server Error", success: false });
   }
 };
-

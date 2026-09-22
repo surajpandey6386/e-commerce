@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import './additem.css';
-import axios from 'axios';
+import React, { useState } from "react";
+import "./additem.css";
+import axios from "axios";
 
 const AddItem = () => {
   const [formData, setFormData] = useState({
-    imgLink: '',
-    description: '',
-    price: '',
-    rating: '',
-    itemname: '',
-    category: '' // changed from 'select' to 'category'
+    imgLink: "",
+    description: "",
+    price: "",
+    rating: "",
+    itemname: "",
+    category: "",
   });
 
   const handleChange = (e) => {
@@ -23,20 +23,16 @@ const AddItem = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:3000/addItem', formData);
-      console.log(res.data);
-      alert('Item added successfully!');
-      setFormData({
-        imgLink: '',
-        description: '',
-        price: '',
-        rating: '',
-        itemname: '',
-        category: ''
+      const res = await axios.post("http://localhost:3000/addItem", formData, {
+        headers: {
+          userId: localStorage.getItem("userId"),
+        },
       });
+
+      alert("Item added successfully!");
     } catch (err) {
       console.error(err);
-      alert('Failed to add item');
+      alert("Admin access only");
     }
   };
 
