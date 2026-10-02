@@ -1,11 +1,12 @@
 import mongoose from 'mongoose';
-const connectdb = ()=>{
+
+const connectdb = async () => {
     try {
-        mongoose.connect('mongodb://localhost:27017/ecommerce');
-        console.log("Database connected!")
+        await mongoose.connect(process.env.MONGODB_URI);
+        console.log("Database connected!");
     } catch (error) {
-        console.log("Error in db");
+        console.log("Error in db:", error.message);
     }
-}
+};
 
 export default connectdb;

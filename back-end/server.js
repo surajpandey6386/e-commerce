@@ -1,5 +1,11 @@
 import express from "express";
+import 'dotenv/config';
 import connectdb from "./config/db.js";
+import {
+  createOrder,
+  verifyPayment,
+} from "./controllers/paymentController.js";
+import { getOrders } from "./controllers/orderController.js";
 import {
   Register,
   Login,
@@ -29,12 +35,14 @@ app.get("/", (req, res) => {
 app.post("/register", Register);
 app.post("/login", Login);
 app.get("/userdetails/:id", getuserdetails);
-app.post("/addItem", addItem);
 app.get("/getproduct", getItem);
 app.post("/add-to-cart", addToCart);
 app.get("/get-cart/:userId", getCart);
 app.delete("/remove-from-cart/:userId/:itemId", removeFromCart);
 app.post("/addItem", isAdmin, addItem);
+app.post("/payment/create-order", createOrder);
+app.post("/payment/verify", verifyPayment);
+app.get("/orders/:userId", getOrders);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

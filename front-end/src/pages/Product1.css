@@ -1,38 +1,259 @@
-.Newshop-section{
+/* =========================
+   PRODUCTS PAGE
+========================= */
+
+.products-page {
+  min-height: 100vh;
+  background: #eef6ff;
+}
+
+.products-header {
+  text-align: center;
+  padding: 35px 20px 20px;
+}
+
+.products-header h1 {
+  margin: 0;
+
+  font-size: 32px;
+  color: #111827;
+}
+
+.products-header p {
+  margin-top: 8px;
+
+  color: #64748b;
+  font-size: 16px;
+}
+
+/* =========================
+   PRODUCT GRID
+========================= */
+
+.Newshop-section {
+  width: 94%;
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(
+    4,
+    minmax(0, 1fr)
+  );
+
+  gap: 24px;
+
+  padding: 20px 0 50px;
+}
+
+/* =========================
+   PRODUCT CARD
+========================= */
+
+.newbox {
+  background: white;
+
+  border-radius: 16px;
+
+  padding: 18px;
+
+  min-height: 470px;
+
+  box-sizing: border-box;
+
+  box-shadow:
+    0 5px 18px rgba(0, 0, 0, 0.08);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+
   display: flex;
-  flex-wrap: wrap;
-  justify-content:space-evenly;
-  background-image:linear-gradient(to right , #00bbf9be,#33003d54 ) ;
 }
-.newbox{
-   /* border: 2px solid black; */
-  height: 440px;
-  width: 23%;
-  background-color: white;
-  padding: 20px 0px 15px;
-  margin-top: 15px;
+
+.newbox:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 14px 30px rgba(0, 0, 0, 0.14);
 }
-.box-newimg{
-  /* background-image: url("https://m.media-amazon.com/images/I/41mWz2aRrTL._SY695_.jpg"); */
-  background-size: cover;
-  object-fit: cover;
+
+/* =========================
+   CARD CONTENT
+========================= */
+
+.box-newcontent {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================
+   IMAGE
+========================= */
+
+.box-newimg {
+  width: 100%;
   height: 250px;
-  width: 200px;
+
   display: flex;
   align-items: center;
-  margin-left: 50px;
-}
-.box-newcontent{
-  margin-right: 1rem;
-  margin-left: 1rem;
-  height: 150px;
+  justify-content: center;
 
+  overflow: hidden;
+
+  background: #f8fafc;
+
+  border-radius: 12px;
+
+  margin-bottom: 15px;
 }
-.box-newcontent p{
-  color: black;
+
+.box-newimg img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  transition: transform 0.3s ease;
 }
-.butt{
-  margin-left: 7rem;
-  position: absolute;
-display: flex;
+
+.newbox:hover .box-newimg img {
+  transform: scale(1.05);
+}
+
+/* =========================
+   PRODUCT INFORMATION
+========================= */
+
+.product-info {
+  flex: 1;
+}
+
+.product-info h3 {
+  margin: 5px 0 10px;
+
+  font-size: 18px;
+
+  line-height: 1.35;
+
+  color: #111827;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+}
+
+.product-info h2 {
+  margin: 8px 0;
+
+  font-size: 24px;
+
+  color: #111827;
+}
+
+.rate {
+  margin: 8px 0;
+
+  color: #475569;
+
+  font-size: 15px;
+}
+
+/* =========================
+   ADD TO CART BUTTON
+========================= */
+
+.butt {
+  width: 100%;
+
+  height: 45px;
+
+  margin-top: 15px;
+
+  border: 1px solid #cbd5e1;
+
+  border-radius: 10px;
+
+  background: transparent;
+
+  color: #111827;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.butt:hover {
+  background: #111827;
+
+  color: white;
+
+  border-color: #111827;
+
+  transform: translateY(-2px);
+}
+
+.butt:active {
+  transform: scale(0.97);
+}
+
+/* =========================
+   ERROR
+========================= */
+
+.error {
+  text-align: center;
+
+  color: #dc2626;
+
+  padding: 20px;
+}
+
+/* =========================
+   NO PRODUCTS
+========================= */
+
+.no-items {
+  grid-column: 1 / -1;
+
+  text-align: center;
+
+  padding: 80px 20px;
+
+  color: #475569;
+}
+
+.no-items h2 {
+  color: #111827;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1200px) {
+  .Newshop-section {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .Newshop-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .Newshop-section {
+    width: 90%;
+
+    grid-template-columns: 1fr;
+  }
 }

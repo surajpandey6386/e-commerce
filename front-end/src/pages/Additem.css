@@ -1,41 +1,290 @@
-.super{
-    height: 100vh; 
-    width: 100%;
-     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: aqua;
+/* =========================
+   ADD ITEM PAGE
+========================= */
+
+.additem-page {
+  min-height: calc(100vh - 90px);
+
+  padding: 45px 20px 70px;
+
+  box-sizing: border-box;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eef4ff,
+      #f8fafc,
+      #eef2ff
+    );
 }
-.detail{
-    height: 600px;
-    width: 400px;
-    background-color: rgb(159, 242, 242);
-    border: 3px solid black;
-    border-radius: 10px;
-    box-shadow: 10px;
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
-    align-items: center;
-    margin-left: 530px;
-    margin-top: -50px;
+
+/* =========================
+   WRAPPER
+========================= */
+
+.additem-wrapper {
+  width: 100%;
+  max-width: 850px;
+
+  margin: auto;
 }
-.inn{
-    margin-top: 30px; 
-    padding: 10px;
-    width: 300px;
-    border-radius: 10px;
+
+/* =========================
+   HEADING
+========================= */
+
+.additem-heading {
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  margin-bottom: 25px;
 }
-form h1{
-    margin-top: 20px;
+
+.admin-icon {
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 16px;
+
+  background: #111827;
+
+  color: white;
+
+  font-size: 22px;
+
+  box-shadow:
+    0 8px 20px rgba(15, 23, 42, 0.2);
 }
-.detail select{
-    margin-top: 30px; 
-    padding: 10px;
-    width: 300px;
-    border-radius: 10px;
+
+.additem-heading h1 {
+  margin: 0;
+
+  font-size: 32px;
+
+  color: #111827;
 }
-.Additem-button{
-    margin-top: 35px;
-    padding: 10px;
-} 
+
+.additem-heading p {
+  margin: 5px 0 0;
+
+  color: #64748b;
+
+  font-size: 15px;
+}
+
+/* =========================
+   FORM CARD
+========================= */
+
+.additem-card {
+  background: white;
+
+  padding: 35px;
+
+  border-radius: 22px;
+
+  border: 1px solid #e2e8f0;
+
+  box-shadow:
+    0 20px 45px rgba(15, 23, 42, 0.1);
+
+  box-sizing: border-box;
+}
+
+/* =========================
+   FORM GROUP
+========================= */
+
+.form-group {
+  display: flex;
+
+  flex-direction: column;
+
+  margin-bottom: 22px;
+}
+
+.form-group label {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  margin-bottom: 8px;
+
+  color: #1e293b;
+
+  font-size: 14px;
+
+  font-weight: 700;
+}
+
+.form-group label svg {
+  color: #2563eb;
+}
+
+.form-group label span {
+  color: #ef4444;
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  border: 1px solid #cbd5e1;
+
+  background: #f8fafc;
+
+  border-radius: 10px;
+
+  padding: 13px 14px;
+
+  outline: none;
+
+  color: #111827;
+
+  font-size: 15px;
+
+  font-family: inherit;
+
+  transition: 0.2s ease;
+}
+
+.form-group input {
+  height: 48px;
+}
+
+.form-group textarea {
+  resize: vertical;
+
+  min-height: 100px;
+}
+
+.form-group select {
+  height: 48px;
+
+  cursor: pointer;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  background: white;
+
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #94a3b8;
+}
+
+/* =========================
+   TWO COLUMN ROW
+========================= */
+
+.form-row {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 20px;
+}
+
+/* =========================
+   ADD BUTTON
+========================= */
+
+.Additem-button {
+  width: 100%;
+
+  height: 52px;
+
+  margin-top: 5px;
+
+  border: none;
+
+  border-radius: 11px;
+
+  background: #111827;
+
+  color: white;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  font-size: 16px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.Additem-button:hover {
+  background: #2563eb;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+.Additem-button:active {
+  transform: scale(0.98);
+}
+
+.Additem-button:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+
+  .additem-page {
+    padding: 25px 15px 50px;
+  }
+
+  .additem-card {
+    padding: 22px;
+  }
+
+  .additem-heading h1 {
+    font-size: 25px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+
+    gap: 0;
+  }
+}

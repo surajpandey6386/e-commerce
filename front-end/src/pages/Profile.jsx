@@ -1,12 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from 'axios';
-import './Profile.css';
+import axios from "axios";
+import {
+  FaUser,
+  FaEnvelope,
+  FaPhone,
+  FaMapMarkerAlt,
+  FaSignOutAlt,
+  FaShoppingBag,
+} from "react-icons/fa";
+import "./Profile.css";
 
 const Profile = () => {
   const [userData, setUserData] = useState({});
+  const [loading, setLoading] = useState(true);
+
   const navigate = useNavigate();
-  const userId = localStorage.getItem('userId');
+  const userId = localStorage.getItem("userId");
 
   useEffect(() => {
     if (!userId) {
@@ -16,10 +26,15 @@ const Profile = () => {
 
     const getUser = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/userdetails/${userId}`);
+        const res = await axios.get(
+          `http://localhost:3000/userdetails/${userId}`
+        );
+
         setUserData(res.data.user);
       } catch (err) {
-        console.error(err);
+        console.error("Error fetching user:", err);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -27,65 +42,164 @@ const Profile = () => {
   }, [userId, navigate]);
 
   const handleLogout = () => {
-    localStorage.removeItem('userId');
+    localStorage.removeItem("userId");
+    localStorage.removeItem("role");
+
     navigate("/login");
   };
 
+  if (loading) {
+    return (
+      <div className="profile-loading">
+        <div className="loading-spinner"></div>
+        <p>Loading profile...</p>
+      </div>
+    );
+  }
+
   return (
     <main className="profile-container">
-      <h1>My Profile</h1>
-      <div className="profile-card">
-        <img src="https://img.lovepik.com/png/20231125/man-avatar-image-for-profile-child-diverse-guy_693690_wh860.png" alt="User Avatar" className="avatar"/>
-        <h2>{userData.name}</h2>
-        <p><b>Email:</b> {userData.email}</p>
-        <p><b>Phone:</b> {userData.phone}</p>
-        <p><b>Address:</b> {userData.address}</p>
-        <button onClick={handleLogout}>Logout</button>
+
+      <div className="profile-wrapper">
+
+        {/* TOP HEADING */}
+
+        <div className="profile-heading">
+          <h1>My Profile</h1>
+          <p>Manage your DealHut account</p>
+        </div>
+
+        {/* PROFILE CARD */}
+
+        <div className="profile-card">
+
+          {/* COVER */}
+
+          <div className="profile-cover"></div>
+
+          {/* AVATAR */}
+
+          <div className="profile-avatar-wrapper">
+
+            <img
+              src={
+                userData.image ||
+                "https://img.lovepik.com/png/20231125/man-avatar-image-for-profile-child-diverse-guy_693690_wh860.png"
+              }
+              alt="User Avatar"
+              className="avatar"
+            />
+
+          </div>
+
+          {/* NAME */}
+
+          <div className="profile-name">
+
+            <h2>
+              {userData.name || "User"}
+            </h2>
+
+            <span>
+              DealHut Customer
+            </span>
+
+          </div>
+
+          {/* INFORMATION */}
+
+          <div className="profile-info">
+
+            <div className="info-item">
+
+              <div className="info-icon">
+                <FaUser />
+              </div>
+
+              <div>
+                <small>Full Name</small>
+                <strong>
+                  {userData.name || "Not available"}
+                </strong>
+              </div>
+
+            </div>
+
+            <div className="info-item">
+
+              <div className="info-icon">
+                <FaEnvelope />
+              </div>
+
+              <div>
+                <small>Email Address</small>
+                <strong>
+                  {userData.email || "Not available"}
+                </strong>
+              </div>
+
+            </div>
+
+            <div className="info-item">
+
+              <div className="info-icon">
+                <FaPhone />
+              </div>
+
+              <div>
+                <small>Phone Number</small>
+                <strong>
+                  {userData.phone || "Not available"}
+                </strong>
+              </div>
+
+            </div>
+
+            <div className="info-item">
+
+              <div className="info-icon">
+                <FaMapMarkerAlt />
+              </div>
+
+              <div>
+                <small>Address</small>
+                <strong>
+                  {userData.address || "Not available"}
+                </strong>
+              </div>
+
+            </div>
+
+          </div>
+
+          {/* ACTIONS */}
+
+          <div className="profile-actions">
+
+            <button
+              className="orders-button"
+              onClick={() => navigate("/orders")}
+            >
+              <FaShoppingBag />
+              My Orders
+            </button>
+
+            <button
+              className="profile-logout-button"
+              onClick={handleLogout}
+            >
+              <FaSignOutAlt />
+              Logout
+            </button>
+
+          </div>
+
+        </div>
+
       </div>
+
     </main>
   );
 };
 
 export default Profile;
-
-
-
-// import React, { useEffect, useState } from "react";
-// import axios from "axios";
-
-// const Profile = () => {
-//   const [user, setUser] = useState(null);
-
-//   useEffect(() => {
-//     const fetchUser = async () => {
-//       try {
-//         const storedUser = JSON.parse(localStorage.getItem("user"));
-//         if (!storedUser) return;
-
-//         const res = await axios.get(
-//           `http://localhost:5000/api/users/${storedUser.id}`
-//         );
-//         setUser(res.data.user);
-//       } catch (err) {
-//         console.error("Error fetching profile", err);
-//       }
-//     };
-
-//     fetchUser();
-//   }, []);
-
-//   if (!user) return <h2>Loading...</h2>;
-
-//   return (
-//     <div>
-//       <h2>Profile</h2>
-//       <p><strong>Name:</strong> {user.name}</p>
-//       <p><strong>Email:</strong> {user.email}</p>
-//       <p><strong>Phone:</strong> {user.phone}</p>
-//       <p><strong>Address:</strong> {user.address}</p>
-//       <p><strong>Role:</strong> {user.role}</p>
-//     </div>
-//   );
-// };
-
-// export default Profile;
