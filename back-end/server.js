@@ -22,7 +22,7 @@ import {
 import isAdmin from "./middleware/isAdmin.js";
 
 const app = express();
-const port = 3000;
+
 
 connectdb();
 
@@ -44,6 +44,4 @@ app.post("/payment/create-order", createOrder);
 app.post("/payment/verify", verifyPayment);
 app.get("/orders/:userId", getOrders);
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
+export default app;
