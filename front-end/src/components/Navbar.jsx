@@ -13,7 +13,7 @@ import {
   FaTimes,
 } from "react-icons/fa";
 
-import "./navbar.css";
+import "./Navbar.css";
 
 const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState("");

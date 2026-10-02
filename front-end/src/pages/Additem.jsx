@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./additem.css";
+import "./Additem.css";
 import axios from "axios";
 import {
   FaImage,
