@@ -27,8 +27,8 @@ const Profile = () => {
     const getUser = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3000/userdetails/${userId}`
-        );
+  `${import.meta.env.VITE_API_URL}/userdetails/${userId}`
+);
 
         setUserData(res.data.user);
       } catch (err) {

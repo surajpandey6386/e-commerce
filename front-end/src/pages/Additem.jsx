@@ -52,7 +52,7 @@ const AddItem = () => {
       setLoading(true);
 
       await axios.post(
-        "http://localhost:3000/addItem",
+  `${import.meta.env.VITE_API_URL}/addItem`,
         formData,
         {
           headers: {

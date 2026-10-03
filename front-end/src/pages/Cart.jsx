@@ -15,7 +15,7 @@ export default function Cart() {
   const fetchCart = async () => {
     try {
       const res = await fetch(
-        `http://localhost:3000/get-cart/${userId}`
+        `${import.meta.env.VITE_API_URL}/get-cart/${userId}`
       );
 
       const data = await res.json();
@@ -33,7 +33,7 @@ export default function Cart() {
   const removeItem = async (itemId) => {
     try {
       const res = await fetch(
-        `http://localhost:3000/remove-from-cart/${userId}/${itemId}`,
+       `${import.meta.env.VITE_API_URL}/remove-from-cart/${userId}/${itemId}`,
         {
           method: "DELETE",
         }
@@ -102,7 +102,7 @@ export default function Cart() {
 
       // Create order on backend
       const response = await fetch(
-        "http://localhost:3000/payment/create-order",
+        `${import.meta.env.VITE_API_URL}/payment/create-order`,
         {
           method: "POST",
           headers: {
@@ -138,7 +138,7 @@ export default function Cart() {
           try {
             // Verify payment on backend
             const verifyResponse = await fetch(
-              "http://localhost:3000/payment/verify",
+              `${import.meta.env.VITE_API_URL}/payment/verify`,
               {
                 method: "POST",
                 headers: {

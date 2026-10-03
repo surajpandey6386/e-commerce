@@ -13,7 +13,7 @@ export default function Orders() {
   const fetchOrders = async () => {
     try {
       const res = await fetch(
-        `http://localhost:3000/orders/${userId}`
+        `${import.meta.env.VITE_API_URL}/orders/${userId}`
       );
 
       const data = await res.json();

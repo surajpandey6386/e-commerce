@@ -20,7 +20,7 @@ const Product1 = () => {
       try {
         setError(null);
 
-        let apiUrl = "http://localhost:3000/getproduct";
+        let apiUrl = `${import.meta.env.VITE_API_URL}/getproduct`;
 
         const params = new URLSearchParams();
 
@@ -68,7 +68,7 @@ const Product1 = () => {
     try {
 
       await axios.post(
-        "http://localhost:3000/add-to-cart",
+  `${import.meta.env.VITE_API_URL}/add-to-cart`,
         {
           userId,
           itemId: item._id,

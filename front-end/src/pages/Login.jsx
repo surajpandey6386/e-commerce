@@ -30,12 +30,12 @@ const Login = () => {
       setLoading(true);
 
       const res = await axios.post(
-        "http://localhost:3000/login",
-        {
-          email,
-          password,
-        }
-      );
+  `${import.meta.env.VITE_API_URL}/login`,
+  {
+    email,
+    password,
+  }
+);
 
       if (res.status === 200) {
         localStorage.setItem("userId", res.data.userId);
