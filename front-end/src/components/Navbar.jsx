@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import logo from "../assets/logo.jpg";
+import logo from "../assets/image.png";
 import {
   FaSearch,
   FaHome,
@@ -57,7 +57,7 @@ const Navbar = () => {
       {/* Logo */}
       <Link to="/" className="navbar-logo">
         <img src={logo} alt="DealHut Logo" />
-        <span>DealHut</span>
+        
       </Link>
 
       {/* Search */}

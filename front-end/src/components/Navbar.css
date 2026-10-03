@@ -5,7 +5,7 @@
 .navbar {
   width: 100%;
   min-height: 78px;
-  padding: 10px 24px;
+  padding: 8px 24px;
 
   background: #101828;
   color: white;
@@ -23,45 +23,48 @@
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
 }
 
+
 /* ================================
-   LOGO
+   FULL DEALHUT LOGO
 ================================ */
 
 .navbar-logo {
   display: flex;
   align-items: center;
-  gap: 12px;
+  justify-content: flex-start;
 
   text-decoration: none;
-  color: white;
+
+  width: 190px;
+  height: 62px;
 
   flex-shrink: 0;
+
+  overflow: hidden;
 }
 
+/* Full logo image */
 .navbar-logo img {
-  width: 58px;
-  height: 58px;
+  width: 190px;
+  height: 62px;
 
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
 
-  border-radius: 50%;
+  display: block;
 
-  background: white;
-  padding: 3px;
+  background: transparent;
 
-  box-sizing: border-box;
-
-  border: 2px solid rgba(255, 255, 255, 0.8);
+  border: none;
+  padding: 0;
+  border-radius: 0;
 }
 
+/* Hide the old DealHut text */
 .navbar-logo span {
-  font-family: Georgia, "Times New Roman", serif;
-
-  font-size: 38px;
-  font-weight: 700;
-
-  white-space: nowrap;
+  display: none;
 }
+
 
 /* ================================
    SEARCH
@@ -79,7 +82,6 @@
   background: white;
 
   border-radius: 28px;
-
   overflow: hidden;
 
   border: 2px solid transparent;
@@ -89,7 +91,9 @@
 
 .navbar-search:focus-within {
   border-color: #8b5cf6;
-  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+
+  box-shadow:
+    0 0 0 3px rgba(139, 92, 246, 0.2);
 }
 
 .navbar-search input {
@@ -112,6 +116,7 @@
 .navbar-search input::placeholder {
   color: #8a94a6;
 }
+
 
 /* Search button */
 
@@ -146,12 +151,14 @@
   transform: scale(0.92);
 }
 
+
 /* ================================
    NAVIGATION
 ================================ */
 
 .navbar-nav {
   display: flex;
+
   align-items: center;
   justify-content: flex-end;
 
@@ -167,6 +174,7 @@
 
   display: flex;
   flex-direction: column;
+
   align-items: center;
   justify-content: center;
 
@@ -190,15 +198,18 @@
 .nav-link span {
   font-size: 14px;
   font-weight: 600;
+
   white-space: nowrap;
 }
 
 .nav-link:hover {
   background: rgba(255, 255, 255, 0.1);
+
   color: #60a5fa;
 
   transform: translateY(-2px);
 }
+
 
 /* ================================
    LOGOUT
@@ -213,9 +224,11 @@
   border-radius: 12px;
 
   background: #ef4444;
+
   color: white;
 
   display: flex;
+
   align-items: center;
   justify-content: center;
 
@@ -231,14 +244,17 @@
 
 .logout-button:hover {
   background: #dc2626;
+
   transform: translateY(-2px);
 
-  box-shadow: 0 7px 18px rgba(239, 68, 68, 0.3);
+  box-shadow:
+    0 7px 18px rgba(239, 68, 68, 0.3);
 }
 
 .logout-button:active {
   transform: scale(0.97);
 }
+
 
 /* ================================
    SIGN IN
@@ -262,8 +278,10 @@
 
 .signin-button:hover {
   background: #1d4ed8;
+
   transform: translateY(-2px);
 }
+
 
 /* ================================
    ADD ITEM
@@ -271,7 +289,9 @@
 
 .add-item-link {
   display: flex;
+
   align-items: center;
+
   gap: 7px;
 
   padding: 10px 12px;
@@ -289,18 +309,22 @@
 
 .add-item-link:hover {
   color: #fde047;
+
   transform: translateY(-2px);
 }
 
+
 /* ================================
-   MOBILE BUTTON
+   MOBILE MENU BUTTON
 ================================ */
 
 .mobile-menu-button {
   display: none;
 
   border: none;
+
   background: transparent;
+
   color: white;
 
   font-size: 25px;
@@ -308,23 +332,27 @@
   cursor: pointer;
 }
 
+
 /* ================================
    TABLET
 ================================ */
 
 @media (max-width: 1150px) {
+
   .navbar {
     gap: 15px;
-    padding: 10px 15px;
+
+    padding: 8px 15px;
   }
 
-  .navbar-logo span {
-    font-size: 30px;
+  .navbar-logo {
+    width: 165px;
+    height: 58px;
   }
 
   .navbar-logo img {
-    width: 52px;
-    height: 52px;
+    width: 165px;
+    height: 58px;
   }
 
   .navbar-search {
@@ -348,29 +376,31 @@
   }
 }
 
+
 /* ================================
    MOBILE
 ================================ */
 
 @media (max-width: 850px) {
+
   .navbar {
     min-height: 70px;
-    padding: 8px 14px;
+
+    padding: 7px 14px;
 
     flex-wrap: wrap;
   }
 
   .navbar-logo {
-    flex: 1;
+    width: 150px;
+    height: 52px;
+
+    flex: none;
   }
 
   .navbar-logo img {
-    width: 48px;
-    height: 48px;
-  }
-
-  .navbar-logo span {
-    font-size: 27px;
+    width: 150px;
+    height: 52px;
   }
 
   .navbar-search {
@@ -384,6 +414,8 @@
 
   .mobile-menu-button {
     display: block;
+
+    margin-left: auto;
   }
 
   .navbar-nav {
@@ -399,7 +431,8 @@
 
     background: #101828;
 
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top:
+      1px solid rgba(255, 255, 255, 0.1);
   }
 
   .navbar-nav.nav-open {
@@ -410,6 +443,7 @@
     width: 100%;
 
     flex-direction: row;
+
     justify-content: flex-start;
 
     padding: 13px 16px;
@@ -434,18 +468,21 @@
   }
 }
 
+
 /* ================================
    SMALL MOBILE
 ================================ */
 
 @media (max-width: 480px) {
-  .navbar-logo span {
-    font-size: 24px;
+
+  .navbar-logo {
+    width: 125px;
+    height: 48px;
   }
 
   .navbar-logo img {
-    width: 44px;
-    height: 44px;
+    width: 125px;
+    height: 48px;
   }
 
   .navbar-search {
